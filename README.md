@@ -10,6 +10,7 @@ A Whirlwind Tour of Erlang
 [x] The shell
 [x] Processes, Modules and Compilation
 [x] Hello Concurrency
+[x] Exercises
 Sequential Programming
 Basic Concepts
 [ ] Starting and Stopping the Erlang Shell
