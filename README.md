@@ -32,19 +32,19 @@ Chapter 2 A Whirlwind Tour of Erlang
 [x] The shell
 [x] Processes, Modules and Compilation
 [x] Hello Concurrency
-[ ] Exercises
+[x] Exercises
 
 PART 2 SEQUENCIAL PROGRAMMING
 Chapter 3 Basic Concepts
-[ ] Starting and Stopping the Erlang Shell
-[ ] Simple Integer Arithmetic
-[ ] Variables
-[ ] Floating-Point Numbers
-[ ] Atoms
-[ ] Tuples
-[ ] Lists
-[ ] Strings
-[ ] Pattern Matching Again
+[x] Starting and Stopping the Erlang Shell
+[x] Simple Integer Arithmetic
+[x] Variables
+[x] Floating-Point Numbers
+[x] Atoms
+[x] Tuples
+[x] Lists
+[x] Strings
+[x] Pattern Matching Again
 Chapter 4 Modules and Functions
 [ ] Modules are where we store code
 [ ] Back to Shopping
