@@ -1,50 +1,40 @@
 ```
 Roberto Nogueira  BSd EE, MSd CE
 Solution Integrator Experienced - Certified by Ericsson
-Rua Cel. Madeira, 42 Apto.22 - Centro
-12245-760 - S. J. dos Campos - São Paulo - Brazil
-Mobile : +55 (19) 98223-0563
-Home   : +55 (12) 3207-6933
-SkypeID: enogrob2005
-Email  : enogrob@gmail.com
-Profile: http://www.linkedin.com/in/enogrob
 ```
 
-![Programming Erlang logo](images/programming_erlang.jpeg)`
+![ebook cover](images/ebook_cover.png)`
 
-Programming Erlang
-------------------
-by John Armstrong
+# Programming Erlang
 
-
-Contents
+## Contents
 
 ```
-[x] Introduction
+[ ] Introduction
 
 PART 1 WHY ERLANG?
 Chapter 1 Introducing Concurrency
-[x] Modelling Concurrency
-[x] Benefits of Concurrency
-[x] Concurrent Programs and Parallel Computers
-[x] Sequential vs. Concurrent Programming Languages
+[ ] Modelling Concurrency
+[ ] Benefits of Concurrency
+[ ] Concurrent Programs and Parallel Computers
+[ ] Sequential vs. Concurrent Programming Languages
 Chapter 2 A Whirlwind Tour of Erlang
-[x] The shell
-[x] Processes, Modules and Compilation
-[x] Hello Concurrency
-[x] Exercises
+[ ] The shell
+[ ] Processes, Modules and Compilation
+[ ] Hello Concurrency
+[ ] Exercises
 
 PART 2 SEQUENCIAL PROGRAMMING
 Chapter 3 Basic Concepts
-[x] Starting and Stopping the Erlang Shell
-[x] Simple Integer Arithmetic
-[x] Variables
-[x] Floating-Point Numbers
-[x] Atoms
-[x] Tuples
-[x] Lists
-[x] Strings
-[x] Pattern Matching Again
+[ ] Starting and Stopping the Erlang Shell
+[ ] Simple Integer Arithmetic
+[ ] Variables
+[ ] Floating-Point Numbers
+[ ] Atoms
+[ ] Tuples
+[ ] Lists
+[ ] Strings
+[ ] Pattern Matching Again
 Chapter 4 Modules and Functions
 [ ] Modules are where we store code
 [ ] Back to Shopping
