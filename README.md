@@ -14,10 +14,10 @@ Solution Integrator Experienced - Certified by Ericsson
 
 PART 1 WHY ERLANG?
 Chapter 1 Introducing Concurrency
-[ ] Modelling Concurrency
-[ ] Benefits of Concurrency
-[ ] Concurrent Programs and Parallel Computers
-[ ] Sequential vs. Concurrent Programming Languages
+[x] Modelling Concurrency
+[x] Benefits of Concurrency
+[x] Concurrent Programs and Parallel Computers
+[x] Sequential vs. Concurrent Programming Languages
 Chapter 2 A Whirlwind Tour of Erlang
 [ ] The shell
 [ ] Processes, Modules and Compilation
