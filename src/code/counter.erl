@@ -6,11 +6,12 @@
 %%  We make no guarantees that this code is fit for any purpose. 
 %%  Visit http://www.pragmaticprogrammer.com/titles/jaerlang2 for more book information.
 %%---
--module(hello).
--export([start/0]).
+-module(counter).
+-export([bump/2, read/1, test/arity]).
 
-start() ->
-    io:format("Hello world~n").
+bump(N, {counter,K}) ->  {counter, N + K}.
+read({counter, N}) -> N.
 
-
-
+-module (counter).
+-export ([function/arity]).
+bump(param) when guard ->

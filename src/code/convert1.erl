@@ -6,11 +6,11 @@
 %%  We make no guarantees that this code is fit for any purpose. 
 %%  Visit http://www.pragmaticprogrammer.com/titles/jaerlang2 for more book information.
 %%---
--module(hello).
--export([start/0]).
+-module(convert1). %% (1)
+-export([yards_to_meters/1, meters_to_yards/1]). %% (2)
 
-start() ->
-    io:format("Hello world~n").
+yards_to_meters(Yards) ->   %% (3)
+    0.9144 * Yards.
 
-
-
+meters_to_yards(Meters) ->
+    1.0936133 * Meters.

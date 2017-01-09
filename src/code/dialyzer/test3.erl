@@ -6,11 +6,12 @@
 %%  We make no guarantees that this code is fit for any purpose. 
 %%  Visit http://www.pragmaticprogrammer.com/titles/jaerlang2 for more book information.
 %%---
--module(hello).
--export([start/0]).
+-module(test3).
+-export([test/0, factorial/1]).
 
-start() ->
-    io:format("Hello world~n").
+test() -> factorial(-5).
 
-
-
+factorial(0) -> 1;
+factorial(N) -> N*factorial(N-1).
+ 
+    

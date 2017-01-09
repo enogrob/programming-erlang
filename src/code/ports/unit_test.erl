@@ -6,11 +6,16 @@
 %%  We make no guarantees that this code is fit for any purpose. 
 %%  Visit http://www.pragmaticprogrammer.com/titles/jaerlang2 for more book information.
 %%---
--module(hello).
+-module(unit_test).
 -export([start/0]).
 
 start() ->
-    io:format("Hello world~n").
-
-
-
+    io:format("Testing drivers~n"),
+    example1:start(),
+    6 = example1:twice(3),
+    10 = example1:sum(6,4),
+    example1_lid:start(),
+    8 = example1_lid:twice(4),
+    20 = example1_lid:sum(15,5),
+    io:format("All tests worked~n"),
+    init:stop().

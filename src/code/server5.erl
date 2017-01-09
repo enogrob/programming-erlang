@@ -6,11 +6,15 @@
 %%  We make no guarantees that this code is fit for any purpose. 
 %%  Visit http://www.pragmaticprogrammer.com/titles/jaerlang2 for more book information.
 %%---
--module(hello).
--export([start/0]).
-
-start() ->
-    io:format("Hello world~n").
-
-
-
+-module(server5).
+-export([start/0, rpc/2]).
+start() -> spawn(fun() -> wait() end).
+wait() ->
+    receive
+	{become, F} -> F()
+    end.
+rpc(Pid, Q) ->
+    Pid ! {self(), Q},
+    receive
+	{Pid, Reply} -> Reply
+    end.

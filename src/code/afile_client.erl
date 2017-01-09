@@ -6,11 +6,20 @@
 %%  We make no guarantees that this code is fit for any purpose. 
 %%  Visit http://www.pragmaticprogrammer.com/titles/jaerlang2 for more book information.
 %%---
--module(hello).
--export([start/0]).
+-module(afile_client).
+-export([ls/1, get_file/2]).
 
-start() ->
-    io:format("Hello world~n").
+ls(Server) ->
+    Server ! {self(), list_dir},
+    receive 
+	{Server, FileList} ->
+	    FileList
+    end.
 
-
+get_file(Server, File) ->
+    Server ! {self(), {get_file, File}},
+    receive 
+	{Server, Content} ->
+	    Content
+    end.
 

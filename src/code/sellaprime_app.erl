@@ -6,11 +6,12 @@
 %%  We make no guarantees that this code is fit for any purpose. 
 %%  Visit http://www.pragmaticprogrammer.com/titles/jaerlang2 for more book information.
 %%---
--module(hello).
--export([start/0]).
-
-start() ->
-    io:format("Hello world~n").
-
+-module(sellaprime_app).
+-behaviour(application).
+-export([start/2, stop/1]).
+start(_Type, StartArgs) ->
+    sellaprime_supervisor:start_link(StartArgs).
+stop(_State) ->
+    ok.
 
 

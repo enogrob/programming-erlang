@@ -6,11 +6,18 @@
 %%  We make no guarantees that this code is fit for any purpose. 
 %%  Visit http://www.pragmaticprogrammer.com/titles/jaerlang2 for more book information.
 %%---
--module(hello).
--export([start/0]).
+-module(area_server0).  
+-export([loop/0]). 
 
-start() ->
-    io:format("Hello world~n").
+loop() ->
+    receive
+	{rectangle, Width, Ht} -> 
+	    io:format("Area of rectangle is ~p~n",[Width * Ht]),
+	    loop();
+	{square, Side} -> 
+	    io:format("Area of square is ~p~n", [Side * Side]),
+	    loop()
+    end.
 
-
+     
 

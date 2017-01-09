@@ -6,11 +6,9 @@
 %%  We make no guarantees that this code is fit for any purpose. 
 %%  Visit http://www.pragmaticprogrammer.com/titles/jaerlang2 for more book information.
 %%---
--module(hello).
--export([start/0]).
+-module(echo).
+-export([me/1]).
 
-start() ->
-    io:format("Hello world~n").
-
-
-
+me(X) ->
+    io:format("echo:~p~n",[X]),
+    X.

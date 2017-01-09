@@ -6,11 +6,23 @@
 %%  We make no guarantees that this code is fit for any purpose. 
 %%  Visit http://www.pragmaticprogrammer.com/titles/jaerlang2 for more book information.
 %%---
--module(hello).
--export([start/0]).
+-module(dist_demo).
 
-start() ->
-    io:format("Hello world~n").
+-export([rpc/4, start/1]).
 
+start(Node) ->
+    spawn(Node, fun() -> loop() end).
 
+rpc(Pid, M, F, A) ->
+    Pid ! {rpc, self(), M, F, A},
+    receive
+	{Pid, Response} ->
+	    Response
+    end.
 
+loop() ->
+    receive
+	{rpc, Pid, M, F, A} ->
+	    Pid ! {self(), (catch apply(M, F, A))},
+	    loop()
+    end.

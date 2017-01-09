@@ -6,11 +6,12 @@
 %%  We make no guarantees that this code is fit for any purpose. 
 %%  Visit http://www.pragmaticprogrammer.com/titles/jaerlang2 for more book information.
 %%---
--module(hello).
--export([start/0]).
+-module(motor_controller).
+-export([add_event_handler/0]).
 
-start() ->
-    io:format("Hello world~n").
-
-
-
+add_event_handler() ->
+    event_handler:add_handler(errors, fun controller/1).
+controller(too_hot) ->
+    io:format("Turn off the motor~n");
+controller(X) ->
+    io:format("~w ignored event: ~p~n",[?MODULE, X]).

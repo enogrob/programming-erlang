@@ -6,11 +6,12 @@
 %%  We make no guarantees that this code is fit for any purpose. 
 %%  Visit http://www.pragmaticprogrammer.com/titles/jaerlang2 for more book information.
 %%---
--module(hello).
--export([start/0]).
+-module(test1).
+-export([f1/0]).
 
-start() ->
-    io:format("Hello world~n").
+f1() -> 
+    X = erlang:time(),
+    seconds(X).
 
-
-
+seconds({_Year, _Month, _Day, Hour, Min, Sec}) ->
+    (Hour * 60 + Min)*60 + Sec.

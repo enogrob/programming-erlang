@@ -6,11 +6,14 @@
 %%  We make no guarantees that this code is fit for any purpose. 
 %%  Visit http://www.pragmaticprogrammer.com/titles/jaerlang2 for more book information.
 %%---
--module(hello).
--export([start/0]).
+-module(user_default).
 
-start() ->
-    io:format("Hello world~n").
+-compile(export_all).
 
+hello() ->
+    "Hello Joe how are you?".
 
+away(Time) ->
+    io:format("Joe is away and will be back in ~w minutes~n",
+	      [Time]).
 

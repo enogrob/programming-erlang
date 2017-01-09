@@ -6,11 +6,24 @@
 %%  We make no guarantees that this code is fit for any purpose. 
 %%  Visit http://www.pragmaticprogrammer.com/titles/jaerlang2 for more book information.
 %%---
--module(hello).
+-module(monitor3).
 -export([start/0]).
 
 start() ->
-    io:format("Hello world~n").
+    process_flag(trap_exit, true),
+    Pid = spawn_link(fun() -> error1:start() end),
+    loop(2, Pid).
 
-
-
+loop(N, Pid) ->
+    io:format("~p N=~p~n",[?MODULE, N]),
+    Pid ! N,
+    receive
+	Any ->
+	    io:format("~p received:~p~n",[?MODULE, Any]),
+	    loop(N, Pid)
+    after 1000 ->
+	loop(N-1, Pid)
+    end.
+       
+			 
+			

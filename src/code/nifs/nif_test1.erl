@@ -6,11 +6,15 @@
 %%  We make no guarantees that this code is fit for any purpose. 
 %%  Visit http://www.pragmaticprogrammer.com/titles/jaerlang2 for more book information.
 %%---
--module(hello).
--export([start/0]).
+-module(nif_test1).
 
-start() ->
-    io:format("Hello world~n").
+-export([load_lib/0, hello/0]).
+-on_load(load_lib/0).
 
+load_lib() ->
+    Z = erlang:load_nif("./nif_test1", 0),
+    erlang:display({z,Z}),
+    Z.
 
-
+hello() ->
+      "NIF library not loaded".

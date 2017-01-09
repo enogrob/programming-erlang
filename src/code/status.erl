@@ -6,11 +6,20 @@
 %%  We make no guarantees that this code is fit for any purpose. 
 %%  Visit http://www.pragmaticprogrammer.com/titles/jaerlang2 for more book information.
 %%---
--module(hello).
--export([start/0]).
+-module(status).
+
+-compile(export_all).
+-import(lists, [filter/2, map/2, member/2]).
 
 start() ->
-    io:format("Hello world~n").
+    not_compiled().
 
+not_compiled() ->
+    E = lib_files_find:files(".", "*.erl",false),
+    E1 = map(fun(I) -> filename:rootname(I) end, E),
+    B = lib_files_find:files(".", "*.beam",false),
+    B1 = map(fun(I) -> filename:rootname(I) end, B),
+    filter(fun(I) -> not member(I, B1) end, E1).
 
-
+		   
+		     

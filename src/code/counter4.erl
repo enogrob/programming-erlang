@@ -6,11 +6,18 @@
 %%  We make no guarantees that this code is fit for any purpose. 
 %%  Visit http://www.pragmaticprogrammer.com/titles/jaerlang2 for more book information.
 %%---
--module(hello).
+-module(counter4).
 -export([start/0]).
 
-start() ->
-    io:format("Hello world~n").
+start() -> lib_misc:spawn_monitor(counter, true, fun() -> counter(0) end).
 
-
-
+counter(N) -> 
+    receive                 
+	bump ->             
+	    counter(N+1);
+	display ->          
+	    io:format("Count=~p~n", [N]),
+	    counter(N);
+	stop ->             
+	    true
+    end.

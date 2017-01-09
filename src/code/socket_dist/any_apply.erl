@@ -6,11 +6,9 @@
 %%  We make no guarantees that this code is fit for any purpose. 
 %%  Visit http://www.pragmaticprogrammer.com/titles/jaerlang2 for more book information.
 %%---
--module(hello).
--export([start/0]).
+-module(any_apply).
 
-start() ->
-    io:format("Hello world~n").
+-export([mfa/3]).
 
-
-
+mfa(Mod, Func, Args) ->
+    apply(Mod, Func, Args).

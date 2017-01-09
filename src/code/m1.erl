@@ -6,11 +6,17 @@
 %%  We make no guarantees that this code is fit for any purpose. 
 %%  Visit http://www.pragmaticprogrammer.com/titles/jaerlang2 for more book information.
 %%---
--module(hello).
--export([start/0]).
+-module(m1).
+-export([loop/1]).
 
-start() ->
-    io:format("Hello world~n").
+-ifdef(debug_flag).
+-define(DEBUG(X), io:format("DEBUG ~p:~p ~p~n",[?MODULE, ?LINE, X])).
+-else.
+-define(DEBUG(X), void).
+-endif.
 
-
-
+loop(0) ->
+    done;
+loop(N) ->  
+    ?DEBUG(N),
+    loop(N-1).

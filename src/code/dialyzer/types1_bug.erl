@@ -6,11 +6,14 @@
 %%  We make no guarantees that this code is fit for any purpose. 
 %%  Visit http://www.pragmaticprogrammer.com/titles/jaerlang2 for more book information.
 %%---
--module(hello).
--export([start/0]).
+-module(types1_bug).
+-export([f4/1]).
 
-start() ->
-    io:format("Hello world~n").
+f4({H,M,S}) when is_float(H) ->
+    print(H,M,S),
+    (H+M*60)*60+S.
 
-
-
+print(H,M,S) ->
+    Str = integer_to_list(H) ++ ":" ++ integer_to_list(M) ++ ":" ++
+	integer_to_list(S),
+    io:format("~s", [Str]).

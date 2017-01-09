@@ -6,11 +6,17 @@
 %%  We make no guarantees that this code is fit for any purpose. 
 %%  Visit http://www.pragmaticprogrammer.com/titles/jaerlang2 for more book information.
 %%---
--module(hello).
--export([start/0]).
+-module(my_fac_server).
+-export([loop/0]).
 
-start() ->
-    io:format("Hello world~n").
-
-
-
+loop() ->
+    receive
+	{From, {fac, N}} ->
+	    From ! {self(), fac(N)},
+	    loop();
+	{become, Something} ->
+	    Something()
+    end.
+    
+fac(0) -> 1;
+fac(N) -> N * fac(N-1).

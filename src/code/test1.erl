@@ -6,11 +6,20 @@
 %%  We make no guarantees that this code is fit for any purpose. 
 %%  Visit http://www.pragmaticprogrammer.com/titles/jaerlang2 for more book information.
 %%---
--module(hello).
--export([start/0]).
+-module(test1).
+-export([foo/1]).
 
-start() ->
-    io:format("Hello world~n").
+zip(X) ->
+    % this is zip
+    Y = "abc",
+    case X of
+	1 ->
+	    2
+    end.
 
+foo(X) ->
+    bar(X).
 
-
+bar(X) ->
+    42.
+ 

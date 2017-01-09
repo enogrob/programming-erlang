@@ -6,11 +6,25 @@
 %%  We make no guarantees that this code is fit for any purpose. 
 %%  Visit http://www.pragmaticprogrammer.com/titles/jaerlang2 for more book information.
 %%---
--module(hello).
--export([start/0]).
+-module(ctemplate).
+-compile(export_all).
 
 start() ->
-    io:format("Hello world~n").
+    spawn(?MODULE, loop, []).
+
+rpc(Pid, Request) ->
+    Pid ! {self(), Request},
+    receive
+	{Pid, Response} ->
+	    Response
+    end.
+	    
+loop(X) ->
+    receive
+	Any ->
+	    io:format("Received:~p~n",[Any]),
+	    loop(X)
+    end.
 
 
-
+		  

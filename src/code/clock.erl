@@ -6,11 +6,17 @@
 %%  We make no guarantees that this code is fit for any purpose. 
 %%  Visit http://www.pragmaticprogrammer.com/titles/jaerlang2 for more book information.
 %%---
--module(hello).
--export([start/0]).
+-module(clock).
+-export([start/2, stop/0]).
 
-start() ->
-    io:format("Hello world~n").
-
-
-
+start(Time, Fun) -> 
+    register(clock, spawn(fun() -> tick(Time, Fun) end)).
+stop() -> clock ! stop.
+tick(Time, Fun) ->
+    receive
+	stop ->
+	    void
+    after Time ->
+	    Fun(),
+	    tick(Time, Fun)
+    end.

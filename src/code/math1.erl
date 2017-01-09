@@ -6,11 +6,8 @@
 %%  We make no guarantees that this code is fit for any purpose. 
 %%  Visit http://www.pragmaticprogrammer.com/titles/jaerlang2 for more book information.
 %%---
--module(hello).
--export([start/0]).
+-module(math1).    %% (1)
+-export([double/1]).  %% (2)
 
-start() ->
-    io:format("Hello world~n").
-
-
+double(X) -> 2*X.         %% (3)
 

@@ -6,11 +6,8 @@
 %%  We make no guarantees that this code is fit for any purpose. 
 %%  Visit http://www.pragmaticprogrammer.com/titles/jaerlang2 for more book information.
 %%---
--module(hello).
--export([start/0]).
-
-start() ->
-    io:format("Hello world~n").
-
-
-
+-module(see_test1).
+-export([main/0]).
+main() ->
+    see:write("HELLO WORLD\n"),
+    see:write(integer_to_list(see:modules_loaded()-8) ++ " modules loaded\n").

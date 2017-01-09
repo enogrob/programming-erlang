@@ -6,11 +6,12 @@
 %%  We make no guarantees that this code is fit for any purpose. 
 %%  Visit http://www.pragmaticprogrammer.com/titles/jaerlang2 for more book information.
 %%---
--module(hello).
--export([start/0]).
+-module(shop).
+-export([cost/1]).
 
-start() ->
-    io:format("Hello world~n").
-
-
-
+cost(oranges)   -> 5;
+cost(newspaper) -> 8; 
+cost(apples)    -> 2;
+cost(pears)     -> 9;
+cost(milk)      -> 7.
+%END:function

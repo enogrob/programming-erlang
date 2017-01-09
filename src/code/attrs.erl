@@ -6,11 +6,11 @@
 %%  We make no guarantees that this code is fit for any purpose. 
 %%  Visit http://www.pragmaticprogrammer.com/titles/jaerlang2 for more book information.
 %%---
--module(hello).
--export([start/0]).
+-module(attrs).
+-vsn(1234).
+-author({joe,armstrong}).
+-purpose("example of attributes").
+-export([fac/1]).
 
-start() ->
-    io:format("Hello world~n").
-
-
-
+fac(1) -> 1;
+fac(N) -> N * fac(N-1).

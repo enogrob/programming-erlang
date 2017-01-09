@@ -6,11 +6,15 @@
 %%  We make no guarantees that this code is fit for any purpose. 
 %%  Visit http://www.pragmaticprogrammer.com/titles/jaerlang2 for more book information.
 %%---
--module(hello).
--export([start/0]).
+-module(stimer).
+-export([start/2, cancel/1]).
 
-start() ->
-    io:format("Hello world~n").
-
-
-
+start(Time, Fun) -> spawn(fun() -> timer(Time, Fun) end).
+cancel(Pid) -> Pid ! cancel.
+timer(Time, Fun) ->
+    receive
+	cancel ->
+	    void
+    after Time ->
+	    Fun()
+    end.

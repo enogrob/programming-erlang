@@ -6,11 +6,9 @@
 %%  We make no guarantees that this code is fit for any purpose. 
 %%  Visit http://www.pragmaticprogrammer.com/titles/jaerlang2 for more book information.
 %%---
--module(hello).
--export([start/0]).
+-module(test2).
+-export([f1/0]).
 
-start() ->
-    io:format("Hello world~n").
-
-
+f1() -> 
+    tuple_size(list_to_tuple({a,b,c})).
 

@@ -6,11 +6,17 @@
 %%  We make no guarantees that this code is fit for any purpose. 
 %%  Visit http://www.pragmaticprogrammer.com/titles/jaerlang2 for more book information.
 %%---
--module(hello).
--export([start/0]).
-
-start() ->
-    io:format("Hello world~n").
-
-
+-module(shop3).
+-export([total/1]).
+ 
+total([{What, N}|T]) ->
+    case (catch shop:cost(What)) of
+	{'EXIT', _} ->
+	    io:format("The shop does not sell ~p~n",[What]),
+	    total(T);
+	Cost ->
+	    Cost * N + total(T)
+    end;
+total([]) ->
+    0.
 

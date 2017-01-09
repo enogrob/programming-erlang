@@ -6,11 +6,22 @@
 %%  We make no guarantees that this code is fit for any purpose. 
 %%  Visit http://www.pragmaticprogrammer.com/titles/jaerlang2 for more book information.
 %%---
--module(hello).
--export([start/0]).
+-module(monitor1).
+-export([start/1]).
 
-start() ->
-    io:format("Hello world~n").
+start(Pid) ->
+    spawn(fun() -> run(Pid) end).
 
+run(Pid) ->
+    link(Pid),
+    loop(0).
 
-
+loop(N) ->
+    io:format("~p N=~p~n",[?MODULE, N]),
+    receive
+    after 2000 ->
+	loop(N+1)
+    end.
+       
+			 
+			

@@ -6,11 +6,17 @@
 %%  We make no guarantees that this code is fit for any purpose. 
 %%  Visit http://www.pragmaticprogrammer.com/titles/jaerlang2 for more book information.
 %%---
--module(hello).
--export([start/0]).
+-module(see_test3).
+-export([main/0]).
+-import(see, [read/0, write/1]).
 
-start() ->
-    io:format("Hello world~n").
+main() -> loop().
 
-
-
+loop() ->
+    case read() of
+        eof ->
+            true;
+        {ok, X} ->
+            write([X]),
+            loop()
+    end.

@@ -6,11 +6,11 @@
 %%  We make no guarantees that this code is fit for any purpose. 
 %%  Visit http://www.pragmaticprogrammer.com/titles/jaerlang2 for more book information.
 %%---
--module(hello).
--export([start/0]).
+-module(bad).
+-export([test/0]).
 
-start() ->
-    io:format("Hello world~n").
-
-
-
+-spec test() -> integer().
+test() ->
+    X = a:make_rich_text("hello"),
+    length([C || {_,C} <- X]).
+			    
