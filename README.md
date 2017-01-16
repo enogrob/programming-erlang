@@ -19,8 +19,8 @@ Chapter 1 Introducing Concurrency
 [x] Concurrent Programs and Parallel Computers
 [x] Sequential vs. Concurrent Programming Languages
 Chapter 2 A Whirlwind Tour of Erlang
-[ ] The shell
-[ ] Processes, Modules and Compilation
+[x] The shell
+[x] Processes, Modules and Compilation
 [ ] Hello Concurrency
 [ ] Exercises
 
